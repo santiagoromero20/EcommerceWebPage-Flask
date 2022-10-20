@@ -178,3 +178,33 @@ We harcoded for every file, home, market, etc...
 
 ## **P5. Models and Databases**
 
+We are going to use a database already "link" with Flask, which underhood is just a python class. We are using SQLAlchemy.
+
+- Installation: "pip install flask-sqlalchemy" on conda env
+
+- Instatiate the db object and create a class (or various) for the things you wan to store info, in our case Items.
+
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+        db = SQLAlchemy(app)
+
+        class Item(db.Model):
+            id = db.Column(db.Integer(), primary_key=True)
+            name = db.Column(db.String(length=30), nullable=False, unique=True)
+            price = db.Column(db.Integer(), nullable=False)
+            barcode = db.Column(db.String(length=12), unique=True)
+            description = db.Column(db.String(length=1024), nullable=False, unique=True)
+
+- Go to MacBook-Pro-de-Carolina:FlaskFCC python3, import the db from the script were you declare it (from market import db). Then, create it, "db.create_all()". By now you should see it on your project.
+
+How can we add the items to the db ?
+
+On the python3 script as before:
+
+- from market imort Item
+- item1 = Item(name="IPhone10", price=500, barcode="187345987832", descrition="descr")
+- db.session.add(item1)
+- db.session.commit()
+  
+To verify if it was correctly uploaded to the db,
+
+- Item.query.all()
