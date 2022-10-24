@@ -10,4 +10,4 @@ ADD ./ /src/
 WORKDIR /src
 
 FROM base as build
-ENTRYPOINT ["gunicorn", "--workers=8", "--bind", "0.0.0.0:5000", "app:app"]
+ENTRYPOINT ["gunicorn", "--workers=8", "--bind", "0.0.0.0:5000", "app:run"]
