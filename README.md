@@ -2,6 +2,8 @@
 
 On this project I code a "toy-webpage". The objective of this project was to get more familiar with Flask, HTML, CSS and SQLAlchemy to gain more clarity of the workflow when deploying ML models into production.
 
+![Alt ](images/goat.jpeg "Title")
+
 ## **Project Structure**
 
     ├── Market
